@@ -33,6 +33,8 @@ gem "paperclip", "~> 2.3"
 
 gem 'rails_admin', '~> 0.7.0'
 
+gem 'cancan', '~> 1.6'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
