@@ -7,10 +7,6 @@ class Ability
       can :manage, :admin # listed separately for clarity
       can :manage, :all
       cannot :destroy, User
-      cannot :manage, PaperTrail::Version
-      cannot :manage, PaperTrail::VersionAssociation
-      can :read, PaperTrail::Version
-      can :read, PaperTrail::VersionAssociation
     end
   end
 end
