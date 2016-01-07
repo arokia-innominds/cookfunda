@@ -29,6 +29,10 @@ gem 'devise'
 
 gem 'sprockets-rails', '2.3.3'
 
+gem "paperclip", "~> 2.3"
+
+gem 'rails_admin', '~> 0.7.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
