@@ -32,3 +32,4 @@ RailsAdmin.config do |config|
     # history_show
   end
 end
+Rack::Utils.multipart_part_limit = 0

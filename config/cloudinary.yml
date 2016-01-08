@@ -1,0 +1,13 @@
+---
+development:
+  cloud_name: difqmcjlt
+  api_key: '375983874138612'
+  api_secret: n_Zl5n2yFpo0v5wxUp1YmxjmeC8
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: difqmcjlt
+  api_key: '375983874138612'
+  api_secret: n_Zl5n2yFpo0v5wxUp1YmxjmeC8
+  enhance_image_tag: true
+  static_image_support: true
