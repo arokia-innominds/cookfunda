@@ -2,7 +2,7 @@
 	<div class='col-sm-3 span-3'>
 		<div class="panel panel-default">
 			<%=cl_image_tag(recipe.pic.path, sign_url: true, transformation: 'large')%>
-			<%if recipe.user%>
+			<%if recipe.user && recipe.user.pic %>
 			  <%=cl_image_tag(recipe.user.pic.path, sign_url: true, transformation: 'small', :class=>"img-circle", :style=>'display: block; width: 80px; margin: -40px auto 0;')%>
 			<%else%>
 			  <%= image_tag('avatar', :class=>"img-circle", :style=>'display: block; width: 80px; margin: -40px auto 0;') %>
