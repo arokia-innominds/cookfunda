@@ -1,11 +1,7 @@
-class User < ActiveRecord::Base
+class Recipe < ActiveRecord::Base
   include Image
-  has_many :recipes
-  has_many :posts
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
+  
+  belongs_to :user
 
   rails_admin do
     edit do
@@ -30,4 +26,5 @@ class User < ActiveRecord::Base
       end
     end
   end
+
 end

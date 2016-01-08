@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160107063301) do
+ActiveRecord::Schema.define(version: 20160108105237) do
+
+  create_table "attachinary_files", force: :cascade do |t|
+    t.integer  "attachinariable_id",   limit: 4
+    t.string   "attachinariable_type", limit: 255
+    t.string   "scope",                limit: 255
+    t.string   "public_id",            limit: 255
+    t.string   "version",              limit: 255
+    t.integer  "width",                limit: 4
+    t.integer  "height",               limit: 4
+    t.string   "format",               limit: 255
+    t.string   "resource_type",        limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "attachinary_files", ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -21,14 +37,10 @@ ActiveRecord::Schema.define(version: 20160107063301) do
   end
 
   create_table "ingredients", force: :cascade do |t|
-    t.string   "name",                limit: 255
-    t.text     "description",         limit: 65535
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.string   "attach_file_name",    limit: 255
-    t.string   "attach_content_type", limit: 255
-    t.integer  "attach_file_size",    limit: 4
-    t.datetime "attach_updated_at"
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -41,6 +53,16 @@ ActiveRecord::Schema.define(version: 20160107063301) do
   end
 
   add_index "posts", ["user_id"], name: "fk_rails_5b5ddfd518", using: :btree
+
+  create_table "recipes", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "user_id",     limit: 4
+  end
+
+  add_index "recipes", ["user_id"], name: "fk_rails_9606fce865", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -71,4 +93,5 @@ ActiveRecord::Schema.define(version: 20160107063301) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
   add_foreign_key "posts", "users"
+  add_foreign_key "recipes", "users"
 end

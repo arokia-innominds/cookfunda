@@ -21,6 +21,10 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" , :class => "form-control input-lg", :id => "inputPasswordConfirmation", :placeholder => "Enter Password Confirmation" %>
   </div>
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.attachinary_file_field :pic %>
+  </div>
 
   <div class="actions button-wrapper">
     <%= f.submit "Sign up", class: "btn btn-lg btn-default btn-primary" %>

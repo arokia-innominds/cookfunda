@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :recipes
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   mount Attachinary::Engine => "/attachinary"
